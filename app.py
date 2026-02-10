@@ -2081,6 +2081,8 @@ def download_csv():
                      download_name=f"{data['disease']}_prediction_data.csv")
 
 
+# Train models on startup (ensure this runs when imported by Gunicorn)
+train_models()
+
 if __name__ == '__main__':
-    train_models()
     app.run(host='0.0.0.0', port=5000, debug=False)
